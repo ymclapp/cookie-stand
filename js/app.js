@@ -2,8 +2,10 @@
 // use strict is almost always the first line of our js files
 console.log('It is working!');
 
+var locations = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'];
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+// Constructor function
 function Loc(name, custMin, custMax, cookieAvgSale, customersEachHour, cookiesEachHour, totalDailyCookies)  {
     this.name = name;
     this.custMin = custMin;
@@ -15,13 +17,15 @@ function Loc(name, custMin, custMax, cookieAvgSale, customersEachHour, cookiesEa
     // [Need to add in formulas for customers and cookies]
   }
 
-var seattleLoc = new Loc ('Seattle Store', 23,65, 6.3);
-var tokyoLoc = new Loc ('Tokyo Store', 3,24, 1.2);
-var dubaiLoc = new Loc ('Dubai Store', 11, 38, 3.7);
-var parisLoc = new Loc ('Paris Store', 20, 38, 2.3);
-var limaLoc = new Loc ('Lima Store', 2, 16, 4.6);
-
-calcCustomersEachHour: function() { 
+Locations.prototype.cookiesEachHour = function() {
+  this.calcCustomersEachHour();
+  for (var i= 0; i < hours.length; i++) {
+      var oneHour = Math.ceil(this.customersEachHour[i] * this.cookieAvgSale);
+      this.cookiesEachHour.push(oneHour);
+      this.totalDailyCookies += oneHour;
+  }
+};
+Locations.prototype.customersEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
     var randomNum = random(this.custMin, this.custMax);
     // console.log('cust hour', this.customersEachHour);
@@ -29,16 +33,52 @@ calcCustomersEachHour: function() {
     // console.log('cust max', this.custMax);
     // console.log(randomNum);
   this.customersEachHour.push(randomNum);
+
+  function random(custMin, custMax) {
+    return Math.floor(Math.random() * (custMax - custMin + 1)) + custMin;
   }
-},
-calcCookiesEachHour: function() {
-  this.calcCustomersEachHour();
-  for (var i= 0; i < hours.length; i++) {
-      var oneHour = Math.ceil(this.customersEachHour[i] * this.cookieAvgSale);
-      this.cookiesEachHour.push(oneHour);
-      this.totalDailyCookies += oneHour;
-  }
-},
+
+var parentElement = document.getElementById('locations');
+var locationsTable = document.getElementById('locationsTable');
+
+function createHeaderRow(){
+  var locTableHead = document.getElementById('locationsHead');
+  var locRow = document.getElementById('locationsHeadRow');
+  var locData = document.createElement('td');
+  locRow.appendChild(locData);
+  for (var i = 0; i < hours.length; i++) {
+     
+}
+
+
+
+
+var seattleLoc = new Loc ('Seattle Store', 23,65, 6.3);
+seattleLoc.cookiesEachHour();
+seattleLoc.totalDailyCookies();
+var tokyoLoc = new Loc ('Tokyo Store', 3,24, 1.2);
+var dubaiLoc = new Loc ('Dubai Store', 11, 38, 3.7);
+var parisLoc = new Loc ('Paris Store', 20, 38, 2.3);
+var limaLoc = new Loc ('Lima Store', 2, 16, 4.6);
+
+// calcCustomersEachHour: function() { 
+//   for (var i = 0; i < hours.length; i++) {
+//     var randomNum = random(this.custMin, this.custMax);
+//     // console.log('cust hour', this.customersEachHour);
+//     // console.log('min cust', this.custMin);
+//     // console.log('cust max', this.custMax);
+//     // console.log(randomNum);
+//   this.customersEachHour.push(randomNum);
+//   }
+// },
+// calcCookiesEachHour: function() {
+//   this.calcCustomersEachHour();
+//   for (var i= 0; i < hours.length; i++) {
+//       var oneHour = Math.ceil(this.customersEachHour[i] * this.cookieAvgSale);
+//       this.cookiesEachHour.push(oneHour);
+//       this.totalDailyCookies += oneHour;
+//   }
+// },
 
 render() {
   this.calcCookiesEachHour();
@@ -365,11 +405,11 @@ render() {
 //     return Math.floor(Math.random()*(max - min +1) + min);
 // }
 
-function random(custMin, custMax) {
-    return Math.floor(Math.random() * (custMax - custMin + 1)) + custMin;
-  }
+// function random(custMin, custMax) {
+//     return Math.floor(Math.random() * (custMax - custMin + 1)) + custMin;
+//   }
 //   var locations = [locOne, locTwo, locThree, locFour, locFive];
-    var locations = [locOne, locTwo, locThree, locFour, locFive];
+    // var locations = [locOne, locTwo, locThree, locFour, locFive];
 
 
 
