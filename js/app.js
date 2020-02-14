@@ -11,7 +11,7 @@ var cookieSum = [];
 
 // Constructor function
 function Loc(name, custMin, custMax, cookieAvgSale)  {
-    this.name = name;
+    this.locatio = name;
     this.custMin = custMin;
     this.custMax = custMax;
     this.cookieAvgSale = cookieAvgSale;
@@ -46,7 +46,7 @@ Loc.prototype.setCookieSum = function() {
 var parentElement = document.getElementById('locations');
 var locationsTable = document.getElementById('locationsTable');
 
-function createHeaderRow(){
+function createHeaderRow() {
   var locTableHead = document.getElementById('locationsHead');
   var locRow = document.getElementById('locationsHeadRow');
   var locData = document.createElement('td');
