@@ -27,3 +27,16 @@ td {
     font-size: larger;
     font-weight: 400;
 }
+
+header {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 600;
+}
+.column1, .column2, .column3, .column4, .column5 {
+    width: 17%;
+    float: left;
+    margin: 1%;
+}
+
+.column5 {margin-right: 0%;}
