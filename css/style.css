@@ -40,3 +40,36 @@ header {
 }
 
 .column5 {margin-right: 0%;}
+
+.center {
+    display: block;
+    width: 40%;
+    border: black;
+    border-style: solid;
+    border-width: thick;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.text-align-center {
+    text-align: center;
+
+}
+
+#add {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+label {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
