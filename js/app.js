@@ -134,3 +134,19 @@ for(var i = 0; i < createLoc.length; i++){
 }
 createTotalRow();
 
+function handleFormSubmit(event) {
+    var nameInput = document.getElementById('name');
+    var nameValue = nameInput['value'];
+    var custMinInput = document.getElementById('custMin');
+    var custMinValue = custMinInput['value'];
+    var custMaxInput = document.getElementById('custMax');
+    var custMaxValue = custMaxInput['value'];
+    var cookieAvgSaleInput = document.getElementById('cookieAvgSale');
+    var cookieAvgSaleValue = cookieAvgSaleInput['value'];
+var newLoc = new Loc(nameValue, custMinValue, custMaxValue, cookieAvgSaleValue);
+// newLoc.
+
+}  
+
+var formEvent = document.getElementById ('form Element');
+formEvent.addEventListener('submit',handleFormSubmit);
