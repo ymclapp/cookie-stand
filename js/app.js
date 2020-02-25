@@ -153,5 +153,5 @@ newLoc.render();
 
 }  
 
-var formEvent = document.getElementById ('form Element');
+var formEvent = document.getElementById ('formElement');
 formEvent.addEventListener('submit', handleFormSubmit);
