@@ -135,6 +135,8 @@ for(var i = 0; i < createLoc.length; i++){
 createTotalRow();
 
 function handleFormSubmit(event) {
+event.preventDefault();
+
     var nameInput = document.getElementById('name');
     var nameValue = nameInput['value'];
     var custMinInput = document.getElementById('custMin');
@@ -144,9 +146,12 @@ function handleFormSubmit(event) {
     var cookieAvgSaleInput = document.getElementById('cookieAvgSale');
     var cookieAvgSaleValue = cookieAvgSaleInput['value'];
 var newLoc = new Loc(nameValue, custMinValue, custMaxValue, cookieAvgSaleValue);
-// newLoc.
+newLoc.setCookiesEachHour();
+newLoc.setCookieSum();
+newLoc.render();
+
 
 }  
 
 var formEvent = document.getElementById ('form Element');
-formEvent.addEventListener('submit',handleFormSubmit);
+formEvent.addEventListener('submit', handleFormSubmit);
