@@ -145,13 +145,13 @@ event.preventDefault();
     var custMaxValue = custMaxInput['value'];
     var cookieAvgSaleInput = document.getElementById('cookieAvgSale');
     var cookieAvgSaleValue = cookieAvgSaleInput['value'];
-// var newLoc = new Loc(nameValue, custMinValue, custMaxValue, cookieAvgSaleValue); - should this be createLoc?
-// newLoc.setCookiesEachHour(); - correct?
-// newLoc.setCookieSum(); - correct?
-// newLoc.render();
+var newLoc = new Loc(nameValue, custMinValue, custMaxValue, cookieAvgSaleValue);
+newLoc.setCookiesEachHour();
+newLoc.setCookieSum();
+newLoc.render();
 
 
 }  
 
 var formEvent = document.getElementById ('form Element');
-formEvent.addEventListener('submit',handleFormSubmit);
+formEvent.addEventListener('submit', handleFormSubmit);
