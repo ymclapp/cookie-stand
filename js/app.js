@@ -33,7 +33,7 @@ Loc.prototype.setCookieSum = function() {
 
 
 function random(custMin, custMax, cookiesEachHour) {
-  return Math.floor(Math.random() * (custMax - custMin) * cookiesEachHour);
+  return Math.floor(Math.random() * ((custMax - custMin) + custMin) * cookiesEachHour);
 }
 
 var parentElement = document.getElementById('locations');
@@ -79,6 +79,7 @@ Loc.prototype.render = function() {
   locRow.appendChild(locData);
   locBody.appendChild(locRow);
   locationsTable.appendChild(locBody);
+  createTotalRow();
 };
 
 
@@ -132,7 +133,7 @@ createHeaderRow();
 for(var i = 0; i < createLoc.length; i++){
   createLoc[i].render();
 }
-createTotalRow();
+
 
 function handleFormSubmit(event) {
 event.preventDefault();
